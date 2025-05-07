@@ -1,12 +1,8 @@
-FROM node:18
+FROM n8nio/n8n
 
-WORKDIR /app
-
-COPY package*.json ./
-RUN npm install
-
-COPY . .
-
-EXPOSE 3000
-
-CMD ["node", "server.js"]
+ENV N8N_PORT=5678
+ENV N8N_BASIC_AUTH_ACTIVE=true
+ENV N8N_BASIC_AUTH_USER=admin
+ENV N8N_BASIC_AUTH_PASSWORD=senha123
+ENV N8N_HOST=0.0.0.0
+EXPOSE 5678
